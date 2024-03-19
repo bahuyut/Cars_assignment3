@@ -8,7 +8,7 @@ public class Vehicle
     public string? Model { get; set; }
     public string? Color { get; set; }
     public string? GearType { get; set; }
-    public int BrandId { get; set; }
+    public string? BrandName { get; set; }
     public Brand? Brand { get; set; }
 }
 

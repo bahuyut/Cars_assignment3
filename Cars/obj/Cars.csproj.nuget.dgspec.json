@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bayramalihuyut/Desktop/8.dönem/cet322/homework 3/Cars/Cars/Cars.csproj": {}
+    "/Users/bayramalihuyut/Desktop/Cars/Cars/Cars.csproj": {}
   },
   "projects": {
-    "/Users/bayramalihuyut/Desktop/8.dönem/cet322/homework 3/Cars/Cars/Cars.csproj": {
+    "/Users/bayramalihuyut/Desktop/Cars/Cars/Cars.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bayramalihuyut/Desktop/8.dönem/cet322/homework 3/Cars/Cars/Cars.csproj",
+        "projectUniqueName": "/Users/bayramalihuyut/Desktop/Cars/Cars/Cars.csproj",
         "projectName": "Cars",
-        "projectPath": "/Users/bayramalihuyut/Desktop/8.dönem/cet322/homework 3/Cars/Cars/Cars.csproj",
+        "projectPath": "/Users/bayramalihuyut/Desktop/Cars/Cars/Cars.csproj",
         "packagesPath": "/Users/bayramalihuyut/.nuget/packages/",
-        "outputPath": "/Users/bayramalihuyut/Desktop/8.dönem/cet322/homework 3/Cars/Cars/obj/",
+        "outputPath": "/Users/bayramalihuyut/Desktop/Cars/Cars/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/bayramalihuyut/.nuget/NuGet/NuGet.Config"

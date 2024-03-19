@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DJC8NNH+V/24Rj0J305I+0XZgiVontladeXkqEFlj/ScDJ2SRmTKEFNhmpjU5MhlQxqRHSoMqFrcZnIZ/IywXw==",
+  "dgSpecHash": "WfLPd2bx+8uBVR1hfkxcICYOTHjiCHouGlfN/0reERNOK8/H3vdZ9Om+ETo/KLDAkLBjGYslCBzXdpzcV4injg==",
   "success": true,
-  "projectFilePath": "/Users/bayramalihuyut/Desktop/8.dönem/cet322/homework 3/Cars/Cars/Cars.csproj",
+  "projectFilePath": "/Users/bayramalihuyut/Desktop/Cars/Cars/Cars.csproj",
   "expectedPackageFiles": [
     "/Users/bayramalihuyut/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/bayramalihuyut/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",

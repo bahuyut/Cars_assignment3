@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Cars.Data;
 using Cars.Models;
 
 namespace Cars.Controllers
@@ -21,8 +22,9 @@ namespace Cars.Controllers
         // GET: Vehicle
         public async Task<IActionResult> Index()
         {
-            var identityDbContext = _context.Vehicle.Include(v => v.Brand);
-            return View(await identityDbContext.ToListAsync());
+              return _context.Vehicle != null ? 
+                          View(await _context.Vehicle.ToListAsync()) :
+                          Problem("Entity set 'IdentityDbContext.Vehicle'  is null.");
         }
 
         // GET: Vehicle/Details/5
@@ -34,7 +36,6 @@ namespace Cars.Controllers
             }
 
             var vehicle = await _context.Vehicle
-                .Include(v => v.Brand)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vehicle == null)
             {
@@ -47,16 +48,17 @@ namespace Cars.Controllers
         // GET: Vehicle/Create
         public IActionResult Create()
         {
-            ViewData["BrandId"] = new SelectList(_context.Brand, "Id", "Id");
+            ViewBag.Brands = _context.Brand.ToList();
             return View();
         }
+
 
         // POST: Vehicle/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CarPlate,Km,Model,Color,GearType,BrandId")] Vehicle vehicle)
+        public async Task<IActionResult> Create([Bind("Id,CarPlate,Km,Model,Color,GearType,BrandName")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +66,6 @@ namespace Cars.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BrandId"] = new SelectList(_context.Brand, "Id", "Id", vehicle.BrandId);
             return View(vehicle);
         }
 
@@ -81,7 +82,6 @@ namespace Cars.Controllers
             {
                 return NotFound();
             }
-            ViewData["BrandId"] = new SelectList(_context.Brand, "Id", "Id", vehicle.BrandId);
             return View(vehicle);
         }
 
@@ -90,7 +90,7 @@ namespace Cars.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CarPlate,Km,Model,Color,GearType,BrandId")] Vehicle vehicle)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CarPlate,Km,Model,Color,GearType,BrandName")] Vehicle vehicle)
         {
             if (id != vehicle.Id)
             {
@@ -117,7 +117,6 @@ namespace Cars.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BrandId"] = new SelectList(_context.Brand, "Id", "Id", vehicle.BrandId);
             return View(vehicle);
         }
 
@@ -130,7 +129,6 @@ namespace Cars.Controllers
             }
 
             var vehicle = await _context.Vehicle
-                .Include(v => v.Brand)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vehicle == null)
             {
